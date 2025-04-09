@@ -1,30 +1,26 @@
 ---
 import { Briefcase, ChartArea, ChartColumnBig, Users } from "lucide-astro";
 import StatCard from "./ui/stat-card.astro";
+import fetchApi from "@/lib/strapi";
+import type IHomePage from "@/interfaces/dashboard.interface";
+import { PUBLIC_STRAPI_URL } from "@/config";
+import { Tick } from "./ui/icons";
+import CardsIndicadores from "./CardsIndicadores";
+import Carousel from "./ui/Carousel.astro";
+
+const homePageData = await fetchApi<IHomePage>({
+  endpoint: 'home-page?fields[0]=id&populate[Carousel][fields][0]=mime&populate[Carousel][fields][1]=url&populate[CardsIndicadores]=*',
+  wrappedByKey: 'data',
+});
 ---
 
 <main class="grid place-items-center pt-4 pb-8 md:pt-4 md:pb-10">
-    <div class="w-full h-257 md:h-170 lg:h-120 relative">
+    <div class="w-full h-90 md:h-120 lg:h-120 relative">
         <!-- CAROUSEL -->
-        <div class="w-full h-50 md:h-80 rounded-2xl flex items-center overflow-hidden fade-in-up">
-            <picture>
-                <img src="/semuc.webp" alt="carousel-1" width="100%" height="auto">
-            </picture>
-        </div>
+        <Carousel carouselData={homePageData.Carousel} />
         <!-- CARDS -->
-        <div class="w-full grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 lg:gap-2 absolute bottom-0 lg:px-16 px-2">
-            <StatCard title="Población" value={17069128} description="personas" date="2025">
-                <Users class="w-5" slot="icon" />
-            </StatCard>
-            <StatCard title="Producto Interno Bruto" value={3.20} suffix="%" description="crecimiento anual" date="4° trimestre 2025">
-                <ChartArea class="w-5" slot="icon" />
-            </StatCard>
-            <StatCard title="Inflación" value={3.77} suffix="%" description="anual" date="Marzo 2025">
-                <ChartColumnBig class="w-5" slot="icon" />
-            </StatCard>
-            <StatCard title="Tasa de Desocupación" value={2.60} suffix="%" description="de la Población Económicamente Activa" date="Enero 2025">
-                <Briefcase class="w-5" slot="icon" />
-            </StatCard>
+        <div class="w-full absolute bottom-0 px-30 md:px-15 lg:px-10 z-40">
+            <CardsIndicadores indicators={homePageData.CardsIndicadores} client:only />
         </div>
 
     </div>

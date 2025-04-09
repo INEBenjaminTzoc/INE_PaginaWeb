@@ -1,11 +1,15 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
+@import "flowbite/src/themes/default";
 /*
   ---break---
 */
 @custom-variant dark (&:is(.dark *));
 
 @plugin '@tailwindcss/typography';
+@plugin "flowbite/plugin";
+
+@source "../../node_modules/flowbite";
 
 @theme {
   --font-sans:

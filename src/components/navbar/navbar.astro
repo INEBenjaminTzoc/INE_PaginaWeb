@@ -3,42 +3,16 @@ import Container from "@/components/container.astro";
 import Link from "@/components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-import { SITE_TITLE } from '../../consts';
-const { class: className } = Astro.props;
+import type IHeader from "@/interfaces/header.interface";
+import fetchApi from "@/lib/strapi";
+import { PUBLIC_STRAPI_URL } from "@/config";
 
-const menuitems = [
-  {
-    title: "Features",
-    path: "#",
-    children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
-    ],
-  },
-  {
-    title: "Pricing",
-    path: "/pricing",
-  },
-  {
-    title: "About",
-    path: "/about",
-  },
-  {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
-  },
-  {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
-  },
-];
+const headerData = await fetchApi<IHeader>({
+  endpoint: 'header?fields[0]=id&populate[Logotipo][populate][icono_institucion][fields][0]=mime&populate[Logotipo][populate][icono_institucion][fields][1]=url&populate[Menu][populate]=*',
+  wrappedByKey: 'data',
+});
+
+const menuitems = headerData.Menu;
 ---
 <div id="primary-header" class="w-full sticky top-0 z-[1001] py-0.5 bg-transparent">
   <Container>
@@ -47,11 +21,11 @@ const menuitems = [
         <div class="flex w-full lg:w-auto items-center justify-between">
           <div class="h-15 aspect-square">
             <picture>
-              <img src="/INE.webp" alt="INE" width="100" height="100" loading="lazy" />
+              <img src=`${PUBLIC_STRAPI_URL}${headerData.Logotipo.icono_institucion.url}` alt="INE" width="100" height="100" loading="lazy" />
             </picture>
           </div>
           <h2 class="lg:max-w-70 px-3 text-[#004F9E]! font-semibold text-xl text-center lg:text-left hidden sm:block">
-            {SITE_TITLE}
+            {headerData.Logotipo.nombre_institucion}
           </h2>
           <div class="block lg:hidden">
             <MenuIcon class="w-6 h-6 text-gray-800" />
@@ -78,7 +52,7 @@ const menuitems = [
                         <span> {item.title}</span>
                         {item.badge && (
                           <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                            New
+                            {item.badge}
                           </span>
                         )}
                       </a>
@@ -88,18 +62,18 @@ const menuitems = [
               ))
             }
           </ul>
-          <div class="lg:hidden flex items-center mt-3 gap-4">
+          <!-- <div class="lg:hidden flex items-center mt-3 gap-4">
             <Link href="#" style="muted" block size="md">Log in</Link>
             <Link href="#" size="md" block>Sign up</Link>
-          </div>
+          </div> -->
         </MenuItems>
       </Astronav>
-      <div>
+      <!-- <div>
         <div class="hidden lg:flex items-center gap-4">
           <a href="#">Log in</a>
           <Link href="#" size="md">Sign up</Link>
         </div>
-      </div>
+      </div> -->
     </header>
   </Container>
 </div>

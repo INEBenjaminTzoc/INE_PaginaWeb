@@ -1,7 +1,10 @@
 ---
 import CountUpText from "./count-up";
+import * as Icons from 'lucide-astro';
 
-const { title, value, prefix, suffix, description, date } = Astro.props;
+const { title, value, prefix, suffix, description, date, icon } = Astro.props;
+
+const LucideIcon = Icons[icon] || Icons.HelpCircle;
 ---
 
 <div class="w-full h-50 border-1 bg-[#FFF] border-[#CACACA] rounded-2xl px-4 py-5 shadow-sm fade-in-up">
@@ -10,7 +13,7 @@ const { title, value, prefix, suffix, description, date } = Astro.props;
       <div class="w-full flex flex-row justify-between items-center text-[#004F9E]!">
         <p class="font-bold">{title}</p>
         <div class="bg-[#EFF6FF] p-1 rounded-lg aspect-square">
-          <slot name="icon" />
+          <LucideIcon class="w-5" />
         </div>
       </div>
       <div class="w-full flex flex-col text-[#004F9E]! mt-3">

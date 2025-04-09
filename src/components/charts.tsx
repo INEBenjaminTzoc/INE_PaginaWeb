@@ -83,7 +83,7 @@ export default function ChartsCarousel() {
 
   return (
     <>
-      <div className='w-full pb-10'>
+      <div className='w-full px-15 lg:px-20 pb-10'>
         <h2 className="text-4xl lg:text-3xl font-bold lg:tracking-tight">
           Censos y Encuestas
         </h2>
@@ -114,8 +114,8 @@ export default function ChartsCarousel() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className='hidden md:flex' />
+          <CarouselNext className='hidden md:flex' />
         </Carousel>
       </div>
     </>
