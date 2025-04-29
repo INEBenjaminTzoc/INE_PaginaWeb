@@ -1,0 +1,187 @@
+---
+import { HandHeart, Handshake, Medal, ShieldCheck, Users } from "lucide-astro";
+---
+
+<h1 class="ml-8 text-4xl font-bold mb-8 fade-in-up">¿Quiénes Somos?</h1>
+<div class="w-full h-90 flex flex-col px-16 py-8 rounded-t-2xl bg-[url('/team.webp')] bg-cover bg-center fade-in-up" />
+<div class="w-full flex flex-row">
+  <p class="text-lg py-10 ml-8 w-[60%] text-slate-600 fade-in-up">
+    El <strong>Instituto Nacional de Estadística</strong> es un organismo descentralizado del Estado, semiautónomo,
+    con personalidad jurídica, patrimonio propio y plena capacidad para adquirir derechos y contraer 
+    obligaciones, cuyo principal fin es ejecutar la política estadística nacional.
+    <br> <br>
+    El Instituto tiene dentro de sus principales funciones: recolectar, elaborar y publicar estadísticas 
+    oficiales, impulsar el Sistema Estadístico Nacional -SEN-, coordinar con otras entidades la realización 
+    de investigaciones, encuestas generales y especiales, promover la capacitación y asistencia técnica
+    en materia estadística, impular la aplicación uniforme de procedimientos estadísticos, entre otros. 
+    Todo esto en cumplimiento de la Ley Orgánica del INE, Decreto Ley 3-85.
+  </p>
+  <div class="grow max-w-[40%] grid grid-rows-2 gap-4 p-6 pr-0">
+    <div class="bg-blue-200 flex flex-col justify-center rounded-b-4xl rounded-tl-4xl px-4 py-2">
+      <h3 class="text-lg font-semibold">Nuestra Misión</h3>
+      <p>
+        Somos una institución técnica, rectora del Sistema Estadístico Nacional, que recopila, analiza, produce
+        y difunde estadísticas oficiales, que coadyuven a la toma de decisiones en función de mejorar la calidad
+        de vida para todos los guatemaltecos.
+      </p>
+    </div>
+    <div class="bg-red-200 flex flex-col justify-center rounded-b-4xl rounded-tl-4xl px-4 py-4">
+      <h3 class="text-lg font-semibold">Nuestra Visión</h3>
+      <p>
+        Ser una institución técnica innovadora y moderna, reconocida nacional e internacionalmente por la
+        confiabilidad, oportuinidad, transparencia y eficiencia de la información estadística que recopila,
+        analiza, produce y difunde.
+      </p>
+    </div>
+  </div>
+</div>
+
+<h1 class="ml-8 text-4xl font-bold mb-8 fade-in-up">Nuestros Valores</h1>
+<div class="w-full grid grid-cols-5 gap-x-4">
+  <div class="bg-green-200 aspect-square rounded-2xl p-4 flex flex-col">
+    <div class="w-full py-1 h-12">
+      <div class="h-10 p-2 aspect-square rounded-full bg-green-300">
+        <Medal />
+      </div>
+    </div>
+    <div class="grow pt-1">
+      <h3 class="text-lg font-semibold">Calidad</h3>
+      <p>
+        Generar productos y servicios estadísticos de excelencia que cumplan con las necesidades de los usuarios.
+      </p>
+    </div>
+  </div>
+  <div class="bg-blue-200 aspect-square rounded-2xl p-4 flex flex-col">
+    <div class="w-full py-1 h-12">
+      <div class="h-10 p-2 aspect-square rounded-full bg-blue-300">
+        <Handshake />
+      </div>
+    </div>
+    <div class="grow pt-1">
+      <h3 class="text-lg font-semibold">Honestidad</h3>
+      <p>
+        Actuar con veracidad y transparencia en el desempeño de nuestras funciones.
+      </p>
+    </div>
+  </div>
+  <div class="bg-red-200 aspect-square rounded-2xl p-4 flex flex-col">
+    <div class="w-full py-1 h-12">
+      <div class="h-10 p-2 aspect-square rounded-full bg-red-300">
+        <Users />
+      </div>
+    </div>
+    <div class="grow pt-1">
+      <h3 class="text-lg font-semibold">Trabajo en equipo</h3>
+      <p>
+        Trabajar de manera coordinada y armonizada, con el fin de alcanzar los objetivos institucionales.
+      </p>
+    </div>
+  </div>
+  <div class="bg-violet-200 aspect-square rounded-2xl p-4 flex flex-col">
+    <div class="w-full py-1 h-12">
+      <div class="h-10 p-2 aspect-square rounded-full bg-violet-300">
+        <HandHeart />
+      </div>
+    </div>
+    <div class="grow pt-1">
+      <h3 class="text-lg font-semibold">Responsabilidad</h3>
+      <p>
+        Garantizar el cumplimiento adecuado de nuestras funciones oportunamente.
+      </p>
+    </div>
+  </div>
+  <div class="bg-orange-200 aspect-square rounded-2xl p-4 flex flex-col">
+    <div class="w-full py-1 h-12">
+      <div class="h-10 p-2 aspect-square rounded-full bg-orange-300">
+        <ShieldCheck />
+      </div>
+    </div>
+    <div class="grow pt-1">
+      <h3 class="text-lg font-semibold">Lealtad</h3>
+      <p>
+        Actuar con respeto y compromiso a los principios y objetivos institucionales.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="w-full flex flex-col mt-16 relative">
+  <h1 class="ml-8 text-4xl font-bold mb-8 fade-in-up">Nuestra Historia</h1>
+  <div class="w-full px-8">
+    <div class="w-full flex flex-row items-center">
+      <h1 class="pr-8 text-6xl font-extrabold text-muted-foreground font-mono">1700</h1>
+      <div class="grow flex items-center pl-8 py-12 border-l-4 border-[#004F9E] relative">
+        <div class="w-4 aspect-square rounded-full bg-[#004F9E] absolute top-[50] -left-2.5"></div>
+        <p>
+          El primer testimonio de la actividad estadística data de 1778, cuando se realizó el Primer 
+          Censo de Población levantado por las autoridades eclesiásticas, que incluían los registros 
+          parroquiales de nacimientos, matrimonios y defunciones.
+        </p>
+      </div>
+    </div>
+    <div class="w-full flex flex-row items-center">
+      <h1 class="pr-8 text-6xl font-extrabold text-muted-foreground font-mono">1800</h1>
+      <div class="grow flex items-center pl-8 py-12 border-l-4 border-[#004F9E] relative">
+        <div class="w-4 aspect-square rounded-full bg-[#004F9E] absolute top-[50] -left-2.5"></div>
+        <p>
+          A partir de 1821 se dieron las primeras inquietudes por organizar la estadística oficial. 
+          José Cecilio del Valle figura como el primer intelectual preocupado por la estructuración 
+          estadística en el istmo centroamericano y es considerado “El Padre de la Estadística” en Guatemala. 
+          En 1823, se promulga la Primera Ley Estadística en las provincias de Centroamérica.
+          El 19 de mayo de 1824, por decreto, se ordena el levantamiento de los censos de población. 
+          En 1825, se conforma la Primera Comisión Nacional de Estadística, que marcó el inicio de la 
+          recolección de información para la gestión de gobierno, incluyendo las primeras nóminas y 
+          establecimientos comerciales e industriales.
+        </p>
+      </div>
+    </div>
+    <div class="w-full flex flex-row items-center">
+      <h1 class="pr-8 text-6xl font-extrabold text-muted-foreground font-mono">1870</h1>
+      <div class="grow flex items-center pl-8 py-12 border-l-4 border-[#004F9E] relative">
+        <div class="w-4 aspect-square rounded-full bg-[#004F9E] absolute top-[50] -left-2.5"></div>
+        <p>
+          En 1879, se funda la Sección de Estadística, adscrita al Ministerio de Fomento, con carácter 
+          de Oficina Central de Estadística, encargándose en 1880 del Segundo Censo de Población.
+          En 1886, esta Oficina fue elevada a la categoría de Dirección General de Estadística, y en 
+          1893 y 1921 se llevaron a cabo el III y IV Censos Generales de Población respectivamente.
+        </p>
+      </div>
+    </div>
+    <div class="w-full flex flex-row items-center">
+      <h1 class="pr-8 text-6xl font-extrabold text-muted-foreground font-mono">1930</h1>
+      <div class="grow flex items-center pl-8 py-12 border-l-4 border-[#004F9E] relative">
+        <div class="w-4 aspect-square rounded-full bg-[#004F9E] absolute top-[50] -left-2.5"></div>
+        <p>
+          En 1936, la Dirección General de Estadística se incorpora al Ministerio de Hacienda y en marzo 
+          se promulga la Segunda Ley Estadística. En 1938, se levantó el Censo Urbano de la Ciudad de 
+          Guatemala, y en 1940, el V Censo de Población.
+        </p>
+      </div>
+    </div>
+    <div class="w-full flex flex-row items-center">
+      <h1 class="pr-8 text-6xl font-extrabold text-muted-foreground font-mono">1940</h1>
+      <div class="grow flex items-center pl-8 py-12 border-l-4 border-[#004F9E] relative">
+        <div class="w-4 aspect-square rounded-full bg-[#004F9E] absolute top-[50] -left-2.5"></div>
+        <p>
+          En 1944, la Dirección de Estadística pasa a jurisdicción del Ministerio de Economía y Trabajo. 
+          En 1950, se llevan a cabo el VI Censo de Población, el I Censo Agropecuario y el I Censo de 
+          Vivienda Urbana.
+          En 1958, se emite la Tercera Ley Estadística, que crea el Sistema Estadístico Nacional. Esta Ley 
+          estuvo vigente hasta 1985, cuando se promulgó la Ley Orgánica del Instituto Nacional de 
+          Estadística (Decreto Ley 3-85), convirtiendo la institución en un ente descentralizado y semiautónomo.
+        </p>
+      </div>
+    </div>
+    <div class="w-full flex flex-row items-center">
+      <h1 class="pr-8 text-6xl font-extrabold text-muted-foreground font-mono">1980</h1>
+      <div class="grow flex items-center pl-8 py-12 border-l-4 border-[#004F9E] relative">
+        <div class="w-4 aspect-square rounded-full bg-[#004F9E] absolute top-[50] -left-2.5"></div>
+        <p>
+          En 1985, se promulgó la Ley Orgánica del Instituto Nacional de Estadística, transformando la institución 
+          en un ente descentralizado y semiautónomo, lo que representó un paso significativo hacia la autonomía 
+          en la gestión estadística.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

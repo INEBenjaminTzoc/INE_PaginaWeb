@@ -1,0 +1,27 @@
+---
+import type { IImage } from "../../interfaces/global.interface";
+import { PUBLIC_STRAPI_URL } from "../../lib/config";
+import { Image } from 'lucide-astro';
+
+const carouselData: IImage[] = Astro.props.carouselData;
+---
+
+{carouselData && carouselData.length > 0 ? (
+  <div id="default-carousel" class="relative w-full fade-in-up" data-carousel="slide" data-carousel-interval="8000">
+    <!-- Carousel wrapper -->
+    <div class="relative h-50 overflow-hidden rounded-lg md:h-80">
+      {carouselData.map((item) => (
+        <div class="hidden duration-[2s] ease-in-out" data-carousel-item>
+          <img src={`${PUBLIC_STRAPI_URL}${item.url}`} 
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" 
+          alt="..." />
+        </div>
+      ))}
+    </div>
+  </div>
+) : (
+  <div class="w-full h-50 md:h-80 rounded-2xl flex items-center justify-center fade-in-up bg-gray-200">
+    <!-- IMAGEN POR DEFAULT SI NO SE ENCUENTRAN IMAGENES EN EL CAROUSEL -->
+    <Image class="scale-800 text-white/80" />
+  </div>
+)}
